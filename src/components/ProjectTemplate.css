@@ -1,0 +1,196 @@
+.project-description {
+    font-family: 'john-doe', sans-serif;
+    background-color: rgba(26, 26, 26, 1);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    color: wheat;
+}
+  
+  /* Title Image Section */
+  .project-headimg {
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-color: rgba(26, 26, 26, 0.5);
+    display: flex;
+    align-items: flex-end;
+    padding-left: 3%;
+  }
+  
+  .project-headimg h1 {
+    margin-bottom: 5vh;
+    font-size: 3em;
+    color: #F5ECE0;
+    letter-spacing: .1em;
+    animation: typing 3s steps(40, end);
+    max-width: fit-content;
+    white-space: nowrap;
+  }
+  
+  /* Section Layout */
+  .project-section {
+    padding: 5vh 5vw;
+  }
+  
+  .project-section h2 {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 4vw;
+    margin-top: 2vw;
+  }
+  
+  .project-section h3 {
+    color: #00897B;
+    margin-top: 2vh;
+    margin-bottom: 0.5vh;
+    margin-left: 5vw;
+  }
+  
+  .project-section p {
+    font-family: "museo-sans-rounded", sans-serif;
+    font-weight: 300;
+    line-height: 1.6;
+    margin-top: 2vw;
+    margin-bottom: 2vw;
+    margin-left: 7vw;
+    max-width: 80vw;
+  }
+  
+  .project-section ul {
+    padding-left: 7vw;
+    list-style-type: disc;
+    color: wheat;
+  }
+  
+  .project-section li {
+    font-family: "museo-sans-rounded", sans-serif;
+    line-height: 1.6;
+    margin-bottom: 1vh;
+    color: wheat;
+  }
+
+  .workflow-full-image {
+    width: 85vw;
+    height: auto;
+    /* max-width: 900px; */
+    height: auto;
+    display: block;
+    margin: 2vh auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(218, 186, 8, 0.4);
+  }
+  
+  /* Scroll animation */
+  .scroll-animate {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+  }
+  
+  .scroll-animate.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Links */
+.project-section a {
+    color: #E6B800;
+    font-weight: bold;
+    text-decoration: none;
+    word-break: break-word;
+}
+  
+.project-section a:hover {
+    text-decoration: underline;
+}
+
+  /*light mode*/
+.light-theme .project-description {
+  background-image: none;
+  background-color: #FAF3E0;
+  background-size: cover;
+  background-blend-mode: multiply;
+}
+
+.light-theme .project-headimg {
+  background-color: rgba(250, 243, 224, 1);
+}
+
+.light-theme .project-headimg h1 {
+  font-family: "ivymode", sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.light-theme .project-section h2 {
+  color: #6B4F34;
+}
+
+.light-theme .project-section p {
+  color: #4A3C2A;
+}  
+
+.light-theme .project-section li {
+  color: #4A3C2A;
+} 
+
+  /* Typing animation for header */
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+  
+  /* Responsive Adjustments */
+@media (max-width: 1024px) {
+  .project-headimg h1, .light-theme .project-headimg h1 {
+    font-size: 2.2rem;
+  }
+  
+    .project-section p,
+    .project-section li,
+    .light-theme .project-section p,
+    .light-theme .project-section li {
+      max-width: 90vw;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .project-headimg h1, .light-theme .project-headimg h1 {
+      font-size: 1.8rem;
+    }
+  
+    .project-section h2, .light-theme .project-section h2 {
+      font-size: 1.3rem;
+    }
+  
+    .project-section h3, .light-theme .project-section h3 {
+      font-size: 1.1rem;
+    }
+  
+    .project-section p, .light-theme .project-section p {
+      font-size: 0.95rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .project-headimg, .light-theme .project-headimg {
+      height: 25vh;
+      padding-left: 5%;
+    }
+  
+    .project-headimg h1, .light-theme .project-headimg h1 {
+      font-size: 1.5rem;
+    }
+  
+    .project-section, .light-theme .project-section {
+      padding: 3vh 5vw;
+    }
+  }
+  

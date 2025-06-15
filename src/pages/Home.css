@@ -1,0 +1,338 @@
+html, body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*The welcome page*/
+.home {
+  width: 100vw;
+  height: 100vh;
+  background: url('../assets/img/bg.webp') no-repeat center center;
+  background-size: cover;
+  background-color: rgba(26, 26, 26, 0.6); /* Semi-transparent black */
+  background-blend-mode: multiply;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: height 0.3s ease-out; 
+  position: relative; 
+  overflow: hidden;
+}
+  
+.welcome-headcontent {
+    font-family: john-doe, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    position: relative;
+    padding: 2%;
+    text-align: center;
+}
+  
+.welcome-headcontent h1 {
+  font-size: 3rem;
+    margin: 21vw auto 0;
+    color: #F5ECE0;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: .1em;
+    animation: typing 5s steps(40, end);
+    display: inline-block;
+    max-width: fit-content;
+}
+  
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.welcome-headcontent h2 {
+    margin-top: 6vh;
+    margin-left: 25%;
+    color: #F5ECE0;
+    font-weight: 700;
+    width: 50%;
+    opacity: 0;  /* Hidden initially */
+    transition: opacity 2s ease-in-out; /* Smooth fade-in effect */
+    animation: fade-in 2s ease-in-out forwards;
+    animation-delay: 1.5s; 
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.start {
+    text-decoration: none;
+    color: inherit;
+}
+
+.start p {
+    margin-top: 10%;
+    font-size: 1.8em; 
+    color: #E6B800;
+    text-shadow: 0 0 5px #E6B800,
+                0 0 10px #E6B800,
+                0 0 30px #E6B800,
+                0 0 60px #E6B800,
+                0 0 90px #E6B800;
+    
+  opacity: 0;
+  animation: fade-in 2s ease-in-out forwards;
+  animation-delay: 2s;
+}
+.start p.breathing {
+  animation: breathing 4s ease-in-out infinite;
+}
+
+/* light mode */
+/* .light-theme .home {
+  background-color: aliceblue;
+  background: url('../assets/img/lbg.png') no-repeat center center;
+  background-size: cover;
+}
+
+.light-theme .welcome-headcontent h1 {
+  color: #0f0c03;
+  font-family: playwrite-cc-gb-s, sans-serif;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.light-theme .welcome-headcontent h2 {
+  color: #0f0c03;
+  font-family: playwrite-cc-gb-s, sans-serif;
+  margin-top: 6vh;
+  margin-left: 25%;
+}
+
+.light-theme .start p {
+  font-family: playwrite-cc-gb-s, sans-serif;
+  font-family: playwrite-cc-gb-s, sans-serif;
+  font-weight: 400;
+  font-style: italic;
+  color: antiquewhite;
+} */
+
+.light-theme .home {
+  background: linear-gradient(135deg, #e7f0f6, #fef8f2);
+  background: url('../assets/img/element.png') no-repeat center center;
+  background-size: cover;
+  background-blend-mode: lighten;
+  transition: all 0.3s ease-in-out;
+}
+
+.light-theme .welcome-headcontent h1 {
+  color: #1A1A1A;
+  font-family: "ivymode", sans-serif;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.light-theme .welcome-headcontent h2 {
+  color: #374151;
+  font-family: 'Inter', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 4vh;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.light-theme .start p {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  color: #895200;
+  margin-top: 6vh;
+  transition: color 0.3s ease;
+}
+
+.light-theme .start p:hover {
+  color: #693a00;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+
+@keyframes breathing {
+    0% {
+      text-shadow: 0 0 5px #f7b661,
+                   0 0 10px #F5ECE0,
+                   0 0 20px #F5ECE0,
+                   0 0 40px #F5ECE0,
+                   0 0 60px #F5ECE0;
+        opacity: 0.7;
+    }
+    
+    50% {
+      text-shadow: 0 0 10px #F5ECE0,
+                   0 0 20px #F5ECE0,
+                   0 0 40px #F5ECE0,
+                   0 0 80px #F5ECE0,
+                   0 0 120px #F5ECE0;
+        opacity: 1;
+    }
+    
+    100% {
+      text-shadow: 0 0 5px #F5ECE0,
+                   0 0 10px #F5ECE0,
+                   0 0 20px #F5ECE0,
+                   0 0 40px #F5ECE0,
+                   0 0 60px #F5ECE0;
+        opacity: 0.7;
+    }
+}
+
+@keyframes rotate{
+    0%
+   {
+       transform: rotate(0deg);
+    }
+    100%
+     {
+      transform: rotate(360deg);
+    }
+}
+
+
+@media (max-width: 834px) {
+
+  .light-theme .home {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .welcome-headcontent h1 {
+    margin-top: 53vw;
+    animation: typing 5s steps(40, end);
+    margin-left: 5vw;
+    font-size: 1.5rem;
+  }
+  
+  .welcome-headcontent h2 {
+    animation-delay: 1.5s; 
+    font-size: 1rem;
+  }
+
+  .music, .navigation {
+      width: 6vh;
+      height: 6vh;
+  }
+
+  .start p {
+    font-size: 0.9rem;
+    animation-delay: 2s, 3s; 
+  }
+}
+
+@media (max-width: 736px) {
+
+  .welcome-headcontent h1 {
+    animation: typing 5s steps(40, end);
+    margin-right: 4vw;
+    margin-top: 20vw;
+    font-size: 0.5rem;
+  }
+  
+  .welcome-headcontent h2 {
+    animation-delay: 1s; 
+    font-size: 0.9rem;
+  }
+
+  .music, .navigation {
+      width: 6vh;
+      height: 6vh;
+  }
+
+  .start p {
+    font-size: 0.8rem;
+    animation-delay: 2s, 3s; 
+  }
+}
+
+
+@media (max-width: 694px) {
+
+  .welcome-headcontent h1 {
+    animation: typing 4s steps(40, end);
+    margin-left: 2vh;
+    margin-top: 35vh;
+    margin-bottom: 2vh;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .welcome-headcontent h2 {
+    animation-delay: 2.8s; 
+    font-size: 1rem;
+    margin-bottom: 10vh;
+  }
+
+  .start p {
+      font-size: 1rem;
+      animation-delay: 3s, 4s; 
+  }
+}
+
+/* MOBILE: UP TO 480PX */
+@media (max-width: 480px) {
+
+  .welcome-headcontent h1 {
+    animation: typing 4s steps(40, end);
+    margin-left: 2vh;
+    margin-top: 35vh;
+    margin-bottom: 2vh;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .welcome-headcontent h2 {
+    animation-delay: 2.8s; 
+    font-size: 1rem;
+    margin-bottom: 10vh;
+  }
+
+  .start p {
+      font-size: 1rem;
+      animation-delay: 3s, 4s; 
+  }
+}
+
+@media (max-width: 380px) {
+
+  .light-theme .home {
+    width: 100vw;
+    height: 100vh;
+    background: url('../assets/img/lbg.png');
+  }
+
+  .welcome-headcontent h1 {
+    animation: typing 4s steps(40, end);
+    margin-left: 2vh;
+    margin-top: 35vh;
+    margin-bottom: 2vh;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .welcome-headcontent h2 {
+    animation-delay: 2.8s; 
+    font-size: 1rem;
+    margin-bottom: 10vh;
+  }
+
+  .start p {
+      font-size: 1rem;
+      animation-delay: 3s, 4s; 
+  }
+}
+
+
+  

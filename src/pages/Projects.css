@@ -1,0 +1,239 @@
+.projects-page {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: #1B1F3B; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    scroll-behavior: smooth;
+    background: url('../assets/img/bg.webp') no-repeat center center;
+    background-size: cover;
+    background-color: rgba(26, 26, 26, 0.6); /* Semi-transparent black */
+    background-blend-mode: multiply;
+    font-family: john-doe, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+.projects-head {
+    width: 60%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: height 0.3s ease-out; 
+    position: relative; 
+}
+
+.projects-headcontent {
+    position: relative;
+}
+
+.projects-headcontent h1 {
+    margin-top: 6vw;
+    margin-left: 3%;
+    font-size: 3em;
+    color: #F5ECE0;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: .1em;
+    animation: typing 3s steps(40, end);
+    display: inline-block;
+    max-width: fit-content;
+}
+
+/* Front and back faces */
+.card-front-me, .card-front-project, .card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 137, 123, 0.5);
+}
+
+.card-front-me, .card-front-project {
+  background-image: url(../assets/img/cardBack.webp);
+  background-size: cover;
+  background-color: rgba(26, 26, 26, 0.5);
+  background-blend-mode: multiply;
+}
+
+.card-back {
+  background-color: #1B1F3B;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+
+h2 {
+    color: white;
+    font-size: 1.5em;
+    margin: 0; /* Removes default margin */
+}
+
+.move {
+    text-decoration: none;
+    color: inherit;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes rotate{
+    0%
+   {
+       transform: rotate(0deg);
+    }
+    100%
+     {
+      transform: rotate(360deg);
+    }
+}
+
+/*light mode*/
+.light-theme .projects-page {
+  background-blend-mode: multiply;
+  background: linear-gradient(135deg, #e7f0f6, #fef8f2);
+  background-image: url('../assets/img/element.png');
+  background-size: cover;
+}
+
+.light-theme .projects-headcontent h1 {
+  color: #0f0c03;
+  font-family: "ivymode", sans-serif;
+  font-weight: 400;
+  font-size: 3rem;
+}
+
+.light-theme h2 {
+  color: #0f0c03;
+  font-family: "ivymode", sans-serif;
+  font-size: 1.5rem;
+  /* text-shadow: 10px 0 5px rgb(222, 204, 179); */
+  margin: 0;
+}
+
+.light-theme .card-front-ed, .light-theme .card-front-web, .light-theme .card-back {
+  width: 25vw;
+  height: 25vw;
+  position: absolute;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* border-radius: 50%; */
+  box-shadow: 0 0 15px rgb(232, 215, 192);
+}
+
+.light-theme .card {
+  margin-right: 8vw;
+}
+
+.light-theme .card-front-web {
+  background: url(../assets/img/code.jpg);
+  background-color: rgba(51, 51, 51, 0.6);
+  background-blend-mode: multiply;
+  background-size: cover;
+  border-radius: 1rem;
+  border: 2px solid rgba(232, 215, 192, 0.7); 
+  box-shadow:
+  0 4px 6px rgba(0, 0, 0, 0.1),
+  0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.light-theme .card-front-ed {
+  background: url(../assets/img/e.jpg);
+  background-color: rgba(51, 51, 51, 0.6);
+  background-blend-mode: multiply;
+  background-size: cover;
+  border-radius: 1rem;
+  border: 2px solid rgba(232, 215, 192, 0.7); 
+  box-shadow:
+  0 4px 6px rgba(0, 0, 0, 0.1),
+  0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.light-theme .card-front-web h2, .light-theme .card-front-ed h2 {
+  width: 100%;
+  /* text-shadow: 10px 0 5px rgb(212, 211, 209); */
+  font-family: museo-sans, sans-serif;
+  font-weight: 700;
+  color: aliceblue;
+}
+
+.light-theme .card-back {
+  color: #0f0c03;
+}
+
+/* Front and back faces */
+.card-front-ed, .card-front-web, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 137, 123, 0.5);
+}
+  
+  .card-front-web, .card-front-ed {
+    background-image: url(../assets/img/cardBack.webp);
+    background-size: cover;
+    background-color: rgba(26, 26, 26, 0.5);
+    background-blend-mode: multiply;
+  }
+  
+  .card-back {
+    background-color: #1B1F3B;
+    color: white;
+    transform: rotateY(180deg);
+  }
+  
+  
+  h2 {
+      color: white;
+      font-size: 1.5em;
+      margin: 0; /* Removes default margin */
+  }
+  
+  .move {
+      text-decoration: none;
+      color: inherit;
+  }
+  
+  @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+  }
+  
+  @keyframes rotate{
+      0%
+     {
+         transform: rotate(0deg);
+      }
+      100%
+       {
+        transform: rotate(360deg);
+      }
+  }
+  
+
+
+
+
+
+  

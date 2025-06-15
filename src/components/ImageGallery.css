@@ -1,0 +1,110 @@
+.img-containerc {
+  position: relative;
+  width: 100%;
+  padding: 3vw 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Focus area wrapper */
+.img-containerc .focus {
+  width: 90%;
+  max-width: 1000px;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Image frame with FIXED SIZE */
+.img-containerc .focus .image-frame {
+  width: 65vw;
+  height: 40vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 5px solid transparent;
+  box-shadow: 0 0 15px rgba(218, 186, 8, 0.4);
+  transition: 0.5s ease-in-out;
+  overflow: hidden; /* Hide any overflow */
+  margin-bottom: 1rem;
+}
+
+/* Big image inside frame - maintains aspect ratio within fixed container */
+.img-containerc .focus .image-frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* This ensures the entire image is visible */
+  border-radius: 10px;
+}
+
+/* Caption styling - now outside the frame */
+.img-containerc .focus .image-label {
+  margin: 0;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1rem;
+  color: inherit;
+}
+
+/* Alternative: if you want images to fill the entire frame (may crop) */
+/*
+.img-containerc .focus .image-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+*/
+
+/* Thumbnail bar */
+.img-containerc ul {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  gap: 1vw;
+  list-style: none;
+}
+
+.img-containerc ul li {
+  flex: 0 0 auto;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+}
+
+.img-containerc ul li img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  transition: border 0.3s ease;
+}
+
+.img-containerc ul li img:hover {
+  border-color: #04D98B;
+}
+
+/* Light mode adaptation */
+.light-theme .img-containerc .focus .image-frame {
+  background-color: aliceblue;
+  box-shadow: 0 0 5px #f0c9c9, 0 0 15px #f0c9c9;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .img-containerc .focus .image-frame {
+    height: 300px; /* Fixed height for mobile - adjust as needed */
+  }
+  
+  .img-containerc ul li {
+    width: 18vw;
+  }
+}

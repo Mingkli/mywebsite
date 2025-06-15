@@ -1,0 +1,369 @@
+.web-projects-page {
+    height: 100vh;
+    width: 100VW;
+    background-image: url('../assets/img/web.png');
+    background-color: rgba(26, 26, 26, 0.8);
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: john-doe, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+  
+
+.web-projects-head {
+    width: 60%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: height 0.3s ease-out; 
+    position: relative; 
+}
+
+.web-projects-headcontent {
+    position: relative;
+}
+
+.web-projects-headcontent h1 {
+    margin-top: 6vw;
+    margin-left: 3%;
+    font-size: 3em;
+    color: #F5ECE0;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: .1em;
+    animation: typing 3s steps(40, end);
+    display: inline-block;
+    max-width: fit-content;
+}
+  
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+.elements {
+    margin-right: 10vh;
+    margin-bottom: 50vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    gap: 10%;
+    width: 100%;
+    animation: fade-in 2s ease-in-out forwards;
+}
+
+
+/* Star Elements */
+.starone {
+    text-decoration: none;
+    color: inherit;
+    margin-top: 10vh;
+    background-size: cover;
+    width: 15vh;
+    height: 15vh;
+    background-image: url(../assets/img/star.png);
+    animation: floatUpDown 4s ease-in-out infinite;
+}
+
+.starone h2 { 
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    margin-top: 6vh;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 15px #FFA500;
+    animation: breathing 4s ease-in-out infinite;
+}
+
+.startwo {
+    text-decoration: none;
+    color: inherit;
+    margin-top: 30vh;
+    background-size: cover;
+    width: 15vh;
+    height: 15vh;
+    background-image: url(../assets/img/star.png);
+    animation: floatUpDown 4s ease-in-out infinite;
+    animation-delay: 0.8s;
+}
+
+.startwo h2 { 
+    text-align: center;
+    margin-top: 6vh;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 15px #FFA500;
+    animation: breathing 4s ease-in-out infinite;
+}
+
+.starthree {
+    text-decoration: none;
+    color: inherit;
+    margin-top: 10vh;
+    background-size: cover;
+    width: 15vh;
+    height: 15vh;
+    background-image: url(../assets/img/star.png);
+    animation: floatUpDown 4s ease-in-out infinite;
+    animation-delay: 1.3s;
+}
+
+.starthree h2 { 
+    text-align: center;
+    margin-top: 6vh;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 15px #FFA500;
+    animation: breathing 4s ease-in-out infinite;
+}
+
+
+/* Moon Elements */
+.moonone {
+    text-decoration: none;
+    color: inherit;
+    margin-top: 0;
+    background-size: cover;
+    width: 10vh;
+    height: 10vh;
+    background-image: url(../assets/img/moon.png);
+    animation: floatUpDown 4s ease-in-out infinite;
+    animation-delay: 1.5s;
+}
+
+.moonone h2 { 
+    text-align: center;
+    margin-top: 5vh;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 15px #FFA500;
+    animation: breathing 4s ease-in-out infinite;
+    animation-delay: 1s; 
+}
+
+.moontwo {
+    text-decoration: none;
+    color: inherit;
+    margin-top: 5vh;
+    background-size: cover;
+    width: 10vh;
+    height: 10vh;
+    background-image: url(../assets/img/moon.png);
+    animation: floatUpDown 4s ease-in-out infinite;
+    animation-delay: 0.5s;
+}
+
+.moontwo h2 { 
+    text-align: center;
+    margin-top: 5vh;
+    color: #ffffff;
+    text-shadow:
+        0 0 5px #FFD700,
+        0 0 10px #FFD700,
+        0 0 15px #FFA500;
+    animation: breathing 4s ease-in-out infinite;
+    animation-delay: 1s; 
+}
+
+/*light mode*/ 
+
+.light-theme .web-projects-page {
+    background-blend-mode: multiply;
+    background: linear-gradient(135deg, #e7f0f6, #fef8f2);
+    background-image: url('../assets/img/element.png');
+    background-size: cover;
+}
+
+.light-theme .web-projects-headcontent h1 {
+    color: #0f0c03;
+    font-family: "ivymode", sans-serif;
+    font-weight: 400;
+    font-size: 3rem;
+    margin-bottom: 3vw;
+}
+
+.light-theme .starone, .light-theme .startwo, .light-theme .starthree {
+    background-image: url('../assets/img/flower.png');
+    background-size: cover;
+}
+
+.light-theme .starone h2 {
+    text-shadow:
+                0 0 5px #eda99a,
+                0 0 10px #eda99a,
+                0 0 15px #f2ede4;
+}
+
+.light-theme .moonone, .light-theme .moontwo, .light-theme .moonthree {
+    background-image: url('../assets/img/leaf.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+@keyframes floatUpDown {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+
+@keyframes breathing {
+    0% {
+      text-shadow: 0 0 5px #E6B800,
+                   0 0 10px #E6B800,
+                   0 0 20px #E6B800,
+                   0 0 40px #E6B800,
+                   0 0 60px #E6B800;
+        opacity: 0.8;
+    }
+    
+    50% {
+      text-shadow: 0 0 10px #E6B800,
+                   0 0 20px #E6B800,
+                   0 0 40px #E6B800,
+                   0 0 80px #E6B800,
+                   0 0 120px #E6B800;
+        opacity: 1;
+    }
+    
+    100% {
+      text-shadow: 0 0 5px #E6B800,
+                   0 0 10px #E6B800,
+                   0 0 20px #E6B800,
+                   0 0 40px #E6B800,
+                   0 0 60px #E6B800;
+        opacity: 0.8;
+    }
+}
+
+
+.move {
+    text-decoration: none;
+    color: inherit;
+}
+
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes rotate{
+    0%
+   {
+       transform: rotate(0deg);
+    }
+    100%
+     {
+      transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 1024px) {
+
+    .web-projects-head h1 {
+        margin-top: 5vw;
+        font-size: 1.5rem;
+    }
+
+    .elements {
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .elements h2 {
+        font-size: 0.8rem;
+    }
+
+    .starone, .startwo, .starthree,
+    .moonone, .moontwo {
+        width: 9vw;
+        height: 9vw;
+    }
+}
+
+@media (max-width: 736px) {
+
+    .web-projects-head h1 {
+        margin-top: 4vw;
+        font-size: 1.5rem;
+    }
+
+    .elements {
+        margin-top: 5vw;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .elements h2 {
+        font-size: 0.8rem;
+    }
+
+    .starone, .startwo, .starthree,
+    .moonone, .moontwo {
+        width: 8vw;
+        height: 8vw;
+    }
+}
+
+@media (max-width: 568px) {
+
+    .web-projects-head h1 {
+        margin-top: 4vw;
+        font-size: 1rem;
+    }
+
+    .elements  {
+        margin-top: 5vw;
+    }
+
+    .starone, .startwo, .starthree, .moonone, .moontwo {
+        width: 8vw;
+        height: 8vw;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .web-projects-head h1 {
+        margin-top: 15%;
+        font-size: 1.5rem;
+    }
+
+    .elements {
+        margin-top: 10%;
+        margin-left: 10%;
+        width: 80%;
+    }
+
+    .elements h2 {
+        font-size: 0.8rem;
+    }
+
+    .starone, .startwo, .starthree,
+    .moonone, .moontwo {
+        width: 10vw;
+        height: 10vw;
+    }
+}
+
+
+
+
+
+
+  
