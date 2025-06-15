@@ -1,5 +1,5 @@
-// src/pages/MyProject.jsx
-import React, { useState } from 'react';
+// Add a ref to track first real user interaction
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../pages/MyProject.css';
 import { useAudio } from '../context/AudioContext';
@@ -11,8 +11,12 @@ const MyProject = () => {
     projects: false
   });
 
-  // Handle card flip on touch devices
+  const userInteracted = useRef(false);
+
   const handleCardFlip = (cardName) => {
+    if (!userInteracted.current) {
+      userInteracted.current = true;
+    }
     setFlippedCards(prev => ({
       ...prev,
       [cardName]: !prev[cardName]
@@ -33,7 +37,6 @@ const MyProject = () => {
           to="/aboutMe" 
           className={`card-link ${flippedCards.aboutMe ? 'flipped' : ''}`}
           onClick={(e) => {
-            // Prevent navigation if this is just a flip action on touch devices
             if (window.matchMedia('(max-width: 768px)').matches && !flippedCards.aboutMe) {
               e.preventDefault();
               handleCardFlip('aboutMe');
@@ -43,7 +46,14 @@ const MyProject = () => {
           <div 
             className="card"
             onMouseEnter={playHoverSound}
-            onTouchStart={() => handleCardFlip('aboutMe')}
+            onTouchStart={() => {
+              if (userInteracted.current) handleCardFlip('aboutMe');
+            }}
+            onTouchEnd={() => {
+              if (!userInteracted.current) {
+                userInteracted.current = true;
+              }
+            }}
           >
             <div className="card-inner">
               <div className="card-front-me">
@@ -63,7 +73,6 @@ const MyProject = () => {
           to="/projects" 
           className={`card-link ${flippedCards.projects ? 'flipped' : ''}`}
           onClick={(e) => {
-            // Prevent navigation if this is just a flip action on touch devices
             if (window.matchMedia('(max-width: 768px)').matches && !flippedCards.projects) {
               e.preventDefault();
               handleCardFlip('projects');
@@ -73,7 +82,14 @@ const MyProject = () => {
           <div 
             className="card"
             onMouseEnter={playHoverSound}
-            onTouchStart={() => handleCardFlip('projects')}
+            onTouchStart={() => {
+              if (userInteracted.current) handleCardFlip('projects');
+            }}
+            onTouchEnd={() => {
+              if (!userInteracted.current) {
+                userInteracted.current = true;
+              }
+            }}
           >
             <div className="card-inner">
               <div className="card-front-project">

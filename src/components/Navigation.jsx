@@ -6,6 +6,7 @@ const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const cursorRef = useRef(null);
   const menuRef = useRef(null);
+  const navButtonRef = useRef(null);
   
   // Toggle menu open/closed
   const handleNavClick = () => {
@@ -20,14 +21,39 @@ const Navigation = () => {
     }
   };
 
-  // Add event listener for cursor when menu is open
+  // Close menu if click outside
+  const handleClickOutside = (e) => {
+    if (
+      menuRef.current &&
+      !menuRef.current.contains(e.target) &&
+      navButtonRef.current &&
+      !navButtonRef.current.contains(e.target)
+    ) {
+      setIsMenuOpen(false);
+    }
+  };
+
+  // Attach global click/touch listener when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.addEventListener('click', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
+    } else {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
+    };
+  }, [isMenuOpen]);
+
+  // Custom cursor listener inside menu
   useEffect(() => {
     const menuElement = menuRef.current;
-    
     if (isMenuOpen && menuElement) {
       menuElement.addEventListener('mousemove', handleMouseMove);
     }
-    
     return () => {
       if (menuElement) {
         menuElement.removeEventListener('mousemove', handleMouseMove);
@@ -37,7 +63,7 @@ const Navigation = () => {
 
   return (
     <div className="navigation-container">
-      <div className="navigation" onClick={handleNavClick}>
+      <div className="navigation" onClick={handleNavClick} ref={navButtonRef}>
         <span></span>
       </div>
       

@@ -144,7 +144,7 @@ h2 {
   color: #0f0c03;
   font-family: "ivymode", sans-serif;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 8vw;
 }
 
@@ -228,7 +228,11 @@ h2 {
 
   .headcontent h1 {
     margin-top: 5vh;
-    font-size: clamp(2rem, 5vw, 2em);
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1rem;
   }
 }
 
@@ -281,7 +285,7 @@ h2 {
 
   .headcontent h1 {
     margin-top: 10vh;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin-left: 1vh;
     animation: typing 1.5s steps(40, end);
   }
