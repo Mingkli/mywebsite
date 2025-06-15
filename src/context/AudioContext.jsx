@@ -1,7 +1,11 @@
-import React, { createContext, useContext, useRef, useState } from 'react';
+import React, { createContext, useContext, useRef, useState, useEffect } from 'react';
 import { useTheme } from './ThemeContext';
-import { useEffect } from 'react';
 
+// Import audio files correctly for Vite
+import chimeAudio from '../assets/soundEffect/chime.mp3';
+import backgroundAudio from '../assets/soundEffect/background.mp3';
+import flipAudio from '../assets/soundEffect/Flip.mp3';
+import needleAudio from '../assets/soundEffect/needle.mp3';
 
 // Create a context
 const AudioContext = createContext();
@@ -38,23 +42,24 @@ export const AudioProvider = ({ children }) => {
     setShowPopup(show);
   };
 
-  const hoverAudio = new Audio('/src/assets/soundEffect/Flip.mp3');
-  hoverAudio.volume = 0.3; // Adjust as needed
+  // Create hover and spin audio instances after importing
+  const hoverAudio = useRef(new Audio(flipAudio));
+  hoverAudio.current.volume = 0.3;
 
   const playHoverSound = () => {
     if (isPlaying) {
-      hoverAudio.currentTime = 0; // Rewind if already playing
-      hoverAudio.play().catch(err => console.error("Hover sound error:", err));
+      hoverAudio.current.currentTime = 0;
+      hoverAudio.current.play().catch(err => console.error("Hover sound error:", err));
     }
   };
 
-  const spinAudio = new Audio('/src/assets/soundEffect/needle.mp3');
-  spinAudio.volume = 0.3; // Adjust as needed
+  const spinAudio = useRef(new Audio(needleAudio));
+  spinAudio.current.volume = 0.3;
 
   const playSpinSound = () => {
     if (isPlaying) {
-      spinAudio.currentTime = 0; // Rewind if already playing
-      spinAudio.play().catch(err => console.error("Spin sound error:", err));
+      spinAudio.current.currentTime = 0;
+      spinAudio.current.play().catch(err => console.error("Spin sound error:", err));
     }
   };
 
@@ -64,23 +69,16 @@ export const AudioProvider = ({ children }) => {
 
       // Set new source based on theme
       audioRef.current.pause();
-      audioRef.current.src =
-        theme === 'dark'
-          ? '/src/assets/soundEffect/chime.mp3'
-          : '/src/assets/soundEffect/background.mp3';
-
+      audioRef.current.src = theme === 'dark' ? chimeAudio : backgroundAudio;
       audioRef.current.load();
 
-      // Auto-play again if it was already playing
       if (wasPlaying) {
         audioRef.current.play().catch(err =>
           console.error("Playback error after theme switch:", err)
         );
       }
     }
-}, [theme]);
-
-
+  }, [theme]);
 
   const value = {
     audioRef,
