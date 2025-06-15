@@ -1,4 +1,4 @@
-// Add a ref to track first real user interaction
+// Fixed version - prevents automatic card flip on first touch
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../pages/MyProject.css';
@@ -10,18 +10,22 @@ const MyProject = () => {
     aboutMe: false,
     projects: false
   });
-
   const userInteracted = useRef(false);
 
   const handleCardFlip = (cardName) => {
-    if (!userInteracted.current) {
-      userInteracted.current = true;
-    }
     setFlippedCards(prev => ({
       ...prev,
       [cardName]: !prev[cardName]
     }));
     playHoverSound();
+  };
+
+  const handleTouchStart = (cardName) => {
+    if (!userInteracted.current) {
+      userInteracted.current = true;
+      return; // Don't flip on first touch, just mark as interacted
+    }
+    handleCardFlip(cardName);
   };
 
   return (
@@ -31,10 +35,9 @@ const MyProject = () => {
           <h1>Please choose a card to click</h1>
         </div>
       </div>
-      
       <div className="cards">
-        <Link 
-          to="/aboutMe" 
+        <Link
+          to="/aboutMe"
           className={`card-link ${flippedCards.aboutMe ? 'flipped' : ''}`}
           onClick={(e) => {
             if (window.matchMedia('(max-width: 768px)').matches && !flippedCards.aboutMe) {
@@ -43,17 +46,10 @@ const MyProject = () => {
             }
           }}
         >
-          <div 
+          <div
             className="card"
             onMouseEnter={playHoverSound}
-            onTouchStart={() => {
-              if (userInteracted.current) handleCardFlip('aboutMe');
-            }}
-            onTouchEnd={() => {
-              if (!userInteracted.current) {
-                userInteracted.current = true;
-              }
-            }}
+            onTouchStart={() => handleTouchStart('aboutMe')}
           >
             <div className="card-inner">
               <div className="card-front-me">
@@ -69,8 +65,8 @@ const MyProject = () => {
           </div>
         </Link>
 
-        <Link 
-          to="/projects" 
+        <Link
+          to="/projects"
           className={`card-link ${flippedCards.projects ? 'flipped' : ''}`}
           onClick={(e) => {
             if (window.matchMedia('(max-width: 768px)').matches && !flippedCards.projects) {
@@ -79,17 +75,10 @@ const MyProject = () => {
             }
           }}
         >
-          <div 
+          <div
             className="card"
             onMouseEnter={playHoverSound}
-            onTouchStart={() => {
-              if (userInteracted.current) handleCardFlip('projects');
-            }}
-            onTouchEnd={() => {
-              if (!userInteracted.current) {
-                userInteracted.current = true;
-              }
-            }}
+            onTouchStart={() => handleTouchStart('projects')}
           >
             <div className="card-inner">
               <div className="card-front-project">
